@@ -7,8 +7,8 @@ resource "aws_instance" "prod-web" {
   ami                    = "ami-0522ab6e1ddcc7055"
   instance_type          = "t2.micro"
   key_name               = "devops"
-  subnet_id              = [aws_subnet.prod-subnet-pub.id]
-  vpc_security_group_ids = [aws_security_group.WEB_OUTSIDE_HTTP.id]
+ # subnet_id              = [aws_subnet.prod-subnet-pub.id]
+ # vpc_security_group_ids = [aws_security_group.WEB_OUTSIDE_HTTP.id]
   associate_public_ip_address = true
 
   user_data = <<-EOF
