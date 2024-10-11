@@ -14,8 +14,8 @@ resource "aws_instance" "prod-web" {
   associate_public_ip_address = true
 
   user_data = <<-EOF
-              #!/bin/bash
-                 sudo apt-get update -y
+                 #!/bin/bash
+                  sudo apt-get update -y
                   sudo apt-get install -y docker.io
                   sudo systemctl start docker
                   sudo systemctl enable docker
@@ -31,7 +31,7 @@ resource "aws_instance" "prod-web" {
   #              sudo apt-get install apache2 -y
   #              sudo systemctl start apache2
     #            echo "WEB $(hostname -f)" > /var/www/html/index.html &
-                EOF
+                #EOF
 
   tags = {
     Name = "Prod-Webserver"
