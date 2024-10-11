@@ -5,7 +5,7 @@
 resource "aws_instance" "prod-web" {
   # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type in us-east-2
   ami                    = "ami-0522ab6e1ddcc7055"
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   key_name               = "devops"
   subnet_id              = "subnet-01ef5f960948ff6f6"
  security_groups        = ["sg-0c61860f1f8e02da3"]
