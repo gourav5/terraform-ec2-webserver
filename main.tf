@@ -7,7 +7,7 @@ resource "aws_instance" "prod-web" {
   ami                    = "ami-0522ab6e1ddcc7055"
   instance_type          = "t2.micro"
   key_name               = "devops"
-  subnet_id              = "vpc-081b30d4509266778"
+  subnet_id              = "subnet-01ef5f960948ff6f6"
  security_groups        = ["sg-0c61860f1f8e02da3"]
  # subnet_id              = [aws_subnet.prod-subnet-pub.id]
  # vpc_security_group_ids = [aws_security_group.WEB_OUTSIDE_HTTP.id]
