@@ -15,10 +15,21 @@ resource "aws_instance" "prod-web" {
 
   user_data = <<-EOF
               #!/bin/bash
-                sudo apt-get update -y
-                sudo apt-get install apache2 -y
-                sudo systemctl start apache2
-                echo "WEB $(hostname -f)" > /var/www/html/index.html &
+                 sudo apt-get update -y
+                  sudo apt-get install -y docker.io
+                  sudo systemctl start docker
+                  sudo systemctl enable docker
+                  sudo usermod -aG docker $USER
+                  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+                  sudo chmod +x /usr/local/bin/docker-compose
+
+
+
+
+#                sudo apt-get update -y
+  #              sudo apt-get install apache2 -y
+  #              sudo systemctl start apache2
+    #            echo "WEB $(hostname -f)" > /var/www/html/index.html &
                 EOF
 
   tags = {
