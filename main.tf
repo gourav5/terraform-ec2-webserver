@@ -15,9 +15,11 @@ resource "aws_instance" "prod-web" {
 
   user_data = <<-EOF
               #!/bin/bash
-              echo "Hello, World" > index.html
-              nohup busybox httpd -f -p "${var.server_port}" &
-              EOF
+                sudo apt-get update -y
+                sudo apt-get install apache2 -y
+                sudo systemctl start apache2
+                echo "WEB $(hostname -f)" > /var/www/html/index.html &
+                EOF
 
   tags = {
     Name = "Prod-Webserver"
